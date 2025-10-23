@@ -11,8 +11,11 @@
  */
 
 // Select email-list from html
+const emailListElement = document.getElementById("email-list");
 
 // Fetch the list from api
+const randomMailEndpoint =
+	"https://flynn.boolean.careers/exercises/api/random/mail";
 
 // For each
 // - build a list item
