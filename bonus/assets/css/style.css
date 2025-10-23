@@ -1,0 +1,57 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 24px;
+	font-family: Helvetica, sans-serif;
+}
+
+.container {
+	max-width: 500px;
+	margin: 0 auto;
+	width: 70%;
+}
+
+.title {
+	padding: 1rem 0;
+	text-align: center;
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+}
+
+#button-generate {
+	padding: 0.5rem 1rem;
+	margin: 0.5rem auto 1.5rem;
+	border: transparent;
+	background-color: rgb(83, 139, 212);
+	border-radius: 5px;
+	color: white;
+	&:hover {
+		cursor: pointer;
+		background-color: rgb(107, 151, 208);
+	}
+}
+
+#email-list {
+	padding: 1rem;
+	list-style: none;
+	min-height: fit-content;
+	&:hover {
+		outline: 2px dashed rgb(83, 139, 212);
+	}
+}
+
+#email-list > li {
+	padding: 0.2rem 0;
+	&:hover {
+		text-decoration-line: underline;
+		cursor: pointer;
+		color: rgb(83, 139, 212);
+	}
+}
