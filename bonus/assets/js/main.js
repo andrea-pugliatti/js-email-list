@@ -18,6 +18,7 @@ function resetElement(element) {
 	element.innerHTML = "";
 }
 
+/*
 // With fetch
 function fetchEmails(endpoint, number) {
 	for (let i = 0; i < number; i++) {
@@ -30,6 +31,20 @@ function fetchEmails(endpoint, number) {
 					printListItem(emailListElement, response);
 				}
 			});
+	}
+}
+*/
+
+// With Axios
+function fetchEmails(endpoint, number) {
+	for (let i = 0; i < number; i++) {
+		axios.get(endpoint).then((result) => {
+			const { success, response } = result.data;
+			if (success) {
+				console.log(response);
+				printListItem(emailListElement, response);
+			}
+		});
 	}
 }
 
