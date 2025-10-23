@@ -1,0 +1,25 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 24px;
+	font-family: Helvetica, sans-serif;
+}
+
+.container {
+	max-width: 500px;
+	margin: 0 auto;
+	width: 70%;
+}
+
+.title {
+	padding: 1rem 0;
+}
+
+#email-list {
+	padding: 1rem;
+	list-style-type: "none";
+}
