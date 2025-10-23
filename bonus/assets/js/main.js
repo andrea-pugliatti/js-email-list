@@ -14,6 +14,25 @@ function printListItem(element, item) {
 	element.innerHTML += `<li>${item}</li>`;
 }
 
+function resetElement(element) {
+	element.innerHTML = "";
+}
+
+// With fetch
+function fetchEmails(endpoint, number) {
+	for (let i = 0; i < number; i++) {
+		fetch(endpoint)
+			.then((response) => response.json())
+			.then((result) => {
+				const { success, response } = result;
+				if (success) {
+					console.log(response);
+					printListItem(emailListElement, response);
+				}
+			});
+	}
+}
+
 // Select email-list from html
 const emailListElement = document.getElementById("email-list");
 
@@ -24,15 +43,9 @@ const generateButtonElement = document.getElementById("button-generate");
 const randomMailEndpoint =
 	"https://flynn.boolean.careers/exercises/api/random/mail";
 
-// With fetch
-for (let i = 0; i < 10; i++) {
-	fetch(randomMailEndpoint)
-		.then((response) => response.json())
-		.then((result) => {
-			const { success, response } = result;
-			if (success) {
-				console.log(response);
-				printListItem(emailListElement, response);
-			}
-		});
-}
+fetchEmails(randomMailEndpoint, 10);
+
+generateButtonElement.addEventListener("click", () => {
+	resetElement(emailListElement);
+	fetchEmails(randomMailEndpoint, 10);
+});
