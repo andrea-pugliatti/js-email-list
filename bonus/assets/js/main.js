@@ -37,6 +37,7 @@ function fetchEmails(endpoint, number) {
 
 // With Axios
 function fetchEmails(endpoint, number) {
+	resetElement(emailListElement);
 	for (let i = 0; i < number; i++) {
 		axios.get(endpoint).then((result) => {
 			const { success, response } = result.data;
@@ -60,7 +61,6 @@ const randomMailEndpoint =
 
 fetchEmails(randomMailEndpoint, 10);
 
-generateButtonElement.addEventListener("click", () => {
-	resetElement(emailListElement);
-	fetchEmails(randomMailEndpoint, 10);
-});
+generateButtonElement.addEventListener("click", () =>
+	fetchEmails(randomMailEndpoint, 10),
+);
